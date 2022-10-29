@@ -11,11 +11,11 @@ public class server1 {
         Socket socket;//сокет подключения с клиентом
         while (count < 6) {//пока верно
             socket = serverSocket.accept();//создаю сокет для подключения и ожидаю подключения
-            System.out.println("Client entered " + (count));//отображаю вход клиента и его номер
+            System.out.println("Client " + count + " entered ");//отображаю вход клиента и его номер
             OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());//открываю выводящий поток
             osw.write("HTTP/1.0 200 OK\n" +
                     "Content-type: text/html\n" +
-                    "\n" + "<h1>client " + count + "</h1>");//передаю информацию клиенту
+                    "\n" + "<h1>client " + count + "</h1>");
             count++;//уеличиваю счетчик
             osw.flush();
             osw.close();//закрываю поток
